@@ -1,0 +1,21 @@
+#Files
+
+1 - Create a python virtual environment
+python -m venv env 
+
+2 - Activate the virtual environment
+source env/bin/activate
+
+3 - Install dependencies
+pip install -r requirements.txt
+
+4 - Run init.py
+python init.py
+
+#species.py contains the main functions of the simulator.
+#setpu.py contains the procedure to run a simulation. It call the functions of species.py.
+#init.py file contains the values of parameters needed to run the simulation.
+When using django app init.py will be replaced with a web form.
+#requirements.txt include all the simulator dependencies.
+#Maps10 contains the environmental variables.
+#tmp will include all the simulation results.

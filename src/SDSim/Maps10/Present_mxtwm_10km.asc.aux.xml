@@ -1,0 +1,53 @@
+<PAMDataset>
+  <PAMRasterBand band="1">
+    <ColorInterp>Palette</ColorInterp>
+    <ColorTable>
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="0" c2="0" c3="0" c4="0" />
+      <Entry c1="255" c2="255" c3="0" c4="255" />
+      <Entry c1="206" c2="255" c3="0" c4="255" />
+      <Entry c1="157" c2="255" c3="0" c4="255" />
+      <Entry c1="108" c2="255" c3="0" c4="255" />
+      <Entry c1="59" c2="255" c3="0" c4="255" />
+      <Entry c1="10" c2="255" c3="0" c4="255" />
+      <Entry c1="0" c2="255" c3="39" c4="255" />
+      <Entry c1="0" c2="255" c3="88" c4="255" />
+      <Entry c1="0" c2="255" c3="137" c4="255" />
+      <Entry c1="0" c2="255" c3="186" c4="255" />
+      <Entry c1="0" c2="255" c3="235" c4="255" />
+      <Entry c1="0" c2="226" c3="255" c4="255" />
+      <Entry c1="0" c2="177" c3="255" c4="255" />
+      <Entry c1="0" c2="128" c3="255" c4="255" />
+      <Entry c1="0" c2="79" c3="255" c4="255" />
+      <Entry c1="0" c2="30" c3="255" c4="255" />
+      <Entry c1="19" c2="0" c3="255" c4="255" />
+      <Entry c1="68" c2="0" c3="255" c4="255" />
+      <Entry c1="117" c2="0" c3="255" c4="255" />
+      <Entry c1="166" c2="0" c3="255" c4="255" />
+      <Entry c1="215" c2="0" c3="255" c4="255" />
+      <Entry c1="255" c2="0" c3="246" c4="255" />
+      <Entry c1="255" c2="0" c3="197" c4="255" />
+      <Entry c1="255" c2="0" c3="148" c4="255" />
+      <Entry c1="255" c2="0" c3="99" c4="255" />
+      <Entry c1="255" c2="0" c3="50" c4="255" />
+      <Entry c1="255" c2="0" c3="0" c4="255" />
+    </ColorTable>
+    <Metadata>
+      <MDI key="COLOR_TABLE_RULE_RGB_0">1.000000e+01 1.520000e+01 255 255 0 0 255 0</MDI>
+      <MDI key="COLOR_TABLE_RULE_RGB_1">1.520000e+01 2.040000e+01 0 255 0 0 255 255</MDI>
+      <MDI key="COLOR_TABLE_RULE_RGB_2">2.040000e+01 2.560000e+01 0 255 255 0 0 255</MDI>
+      <MDI key="COLOR_TABLE_RULE_RGB_3">2.560000e+01 3.080000e+01 0 0 255 255 0 255</MDI>
+      <MDI key="COLOR_TABLE_RULE_RGB_4">3.080000e+01 3.600000e+01 255 0 255 255 0 0</MDI>
+      <MDI key="COLOR_TABLE_RULES_COUNT">5</MDI>
+      <MDI key="Generated_with">GRASS GIS 7.0.3</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

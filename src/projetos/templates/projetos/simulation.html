@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sDsim</title>
+    <!-- Bootstrap and Select2 links -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'projetos/my_stylesheet.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'projetos/style_new.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'projetos/bootstrap.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'projetos/lightbox.css' %}"/>
+    <link rel="stylesheet" href="{% static 'projetos/lightbox.mini.css' %}"/>
+    <script src="{% static 'projetos/dist/lightbox-plus-jquery.min.js' %}"></script>
+    <!-- Fontawesome link -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Select2 links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    >
+</head>
+
+<body class="Site">
+<nav class="navbar  navbar-expand-lg navbar-light bg-light py-3 border-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid" src="{% static 'projetos/img/logo1.png' %}" alt="" width="90" height="65">
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link menu-item" aria-current="page" href="/#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-item" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link menu-item" href="/#registration">Registration</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="Site-content">
+  <div class="mt-4 col-md-12"></div>
+  <h1 class="text-center">Data input for Simulation</h1>
+
+  <div class="mt-4 col-md-12"></div>
+
+  <div class=" ml-3">
+    <h5>Virtual Species</h5>
+  </div>
+  <div class="mt-4 col-md-12"></div>
+
+
+    <div class="form-group">
+      <form action="" method="post" onsubmit="return sdmean_values()">
+          {% csrf_token %}
+          {{form.errors}}
+          
+          <div class="row ml-1">
+            <div class="col-3">
+              <label for="form.species_name">Species Name:</label>
+              <input type="text" class="form-control" id="form.species_name" name="species_name" placeholder="Enter species name">
+              <div class="mt-4 col-md-12"></div>
+              <label for="form.birth_rate">Birth Rate:</label>
+              <input type="number" class="form-control" id="form.birth_rate" name="birth_rate" placeholder="Enter birth rate" min="0" max="1" step=".01">
+              <div class="mt-4 col-md-12"></div>
+              <label for="form.death_rate">Death Rate:</label>
+              <input type="number" class="form-control" id="form.death_rate" name="death_rate" placeholder="Enter death rate" min="0" max="1" step=".01">
+              <div class="mt-4 col-md-12"></div>
+              <label for="form.spread_rate">Spread Rate:</label>
+              <input type="number" class="form-control" id="form.spread_rate" name="spread_rate" placeholder="Enter spread rate" min="0" max="1" step=".01">
+              <div class="mt-4 col-md-12"></div>
+              <label for="from.ticks">Number of Interactions:</label>
+              <input type="number" class="form-control" id="form.ticks" name="ticks" placeholder="Enter number">
+              <div class="mt-4 col-md-12"></div>
+              <label for="form.delta">Refresh Frequency:</label>
+              <input type="number" class="form-control" id="form.delta" name="delta" placeholder="Enter number">
+              <div class="mt-4 col-md-12"></div>
+              <label for="form.limit">Limit:</label>
+              <input type="number" class="form-control" id="form.limit" name="limit" placeholder="Enter limit" min="0" max="1" step=".01">
+              <div class="mt-4 col-md-12"></div>
+            </div>
+
+            <div class="col-9">
+              <img class="img-responsive center-block d-block mx-auto" src="{% static 'projetos/img/especies.png' %}">
+            </div>
+          </div>
+          
+          <!-- <div>
+            <select>
+              <option value="">Select a species</option>
+              {% for env in files %}
+                <option value="variable2">{{ env.myfiles }}</option>
+              {% endfor %}
+            </select>
+          </div> -->
+          <div class="container-fluid">
+            <table class="table table-borded" style="background-color:white" id="choose_variables">
+                <thead>
+                <tr>
+                  <td>Variable to use</td>
+                </tr>  
+                </thead>
+                <tbody>
+                <tr id="row_upload">
+                    <td>
+                      <select id="chooseFile" name="env_variables" class="form-control" multiple>
+                        {% for env in files %}
+                          <option value="{{ env.myfiles }}">{{ env.myfiles }}</option>
+                        {% endfor %}
+                      </select>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+          </div>
+                   
+          <div class="meanSd mt-4 col-md-12 meanstd" id="hidden-input">
+        
+          </div>
+
+            <input type="text" class="class_mean" id="form_mean" name="mean" placeholder="Enter mean" min="0" max="100" step="0.00000001" hidden>
+            <input type="text" class="class_std" id="form_std" name="std" placeholder="Enter std" min="0" max="100" step="0.00000001" hidden>
+            
+            <div class="mt-4 col-md-12"></div>
+
+            <div class="container-fluid text-center">  
+              <input  id="startButton" class="btn btn-success btn-lg" type="submit" value="Start simulation">
+            </div>
+      </form>
+            <div class="mt-4 col-md-12"></div>
+            <div class="container-fluid text-center">
+              <input  id="resultsButton" class="btn btn-success btn-lg" type="submit" value="Consult the Results">
+            </div>
+    </div>
+
+  <div class="mt-4 col-md-12"></div>
+
+
+  <div class="mt-4 col-md-12"></div>
+</div>
+<!--
+  fixed-bottom para ficar no final da pagina 
+  mas da conflito com os files depois
+-->
+
+
+<footer class="p-4 bg-dark text-white">
+        <div class="container justify-content-center align-items-center text-center">
+            <p>&copy; sDsim 2021. Universidade da Beira Interior </p>
+            <p>By sDsim Team</p>
+        </div>
+    </footer>
+
+
+<!-- script redirect to Results page -->
+<script type="text/javascript">
+  let path_send ="{{path_csv}}";
+  if (path_send != ""){
+    document.getElementById("resultsButton").onclick = function () {  
+    location.href = "/ocurrence_data?path_csv="+path_send;
+  };
+  }else{
+    $('#resultsButton').hide();
+  }
+     
+</script>
+
+<style>
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+.meanstd {
+  margin-left: 1.0em;
+  margin-right: 1.0em;
+  border-radius: .2em;
+  margin-top: 2.0em;
+}
+
+</style>
+
+</body> 
+
+<!-- Script to dynamic inputs to mean and std -->
+<script>
+  $(document).ready(function() {
+    $('#chooseFile').select2({
+        placeholder:'Select environmet variables '
+    });
+});
+  
+let select = document.getElementById("chooseFile");
+    $(select).on('select2:select', function(e){
+        let data = e.params.data;
+        
+        div = document.createElement('div');
+                    div.id = data.text;
+                    label = document.createElement('label');
+                    mean = document.createElement('input');
+                    sd = document.createElement('input');
+                    mean.setAttribute('type', 'number');
+                    mean.setAttribute('min', "0.0");
+                    mean.setAttribute('max', "100.0");
+                    mean.setAttribute('step', "0.00000001");
+                    mean.setAttribute("placeholder", "Mean");
+                    mean.setAttribute("class", "meanstd mean");
+                    sd.setAttribute('type', 'number');
+                    sd.setAttribute('min', "0.0");
+                    sd.setAttribute('max', "100.0");
+                    sd.setAttribute('step', "0.00000001");
+                    sd.setAttribute("placeholder", "Standard Deviation");
+                    sd.setAttribute("class", "meanstd sd");
+                    label.innerText = data.text;
+                    div.appendChild(label);
+                    div.appendChild(mean);
+                    div.appendChild(sd);
+                    document.getElementById("hidden-input").appendChild(div);
+                    
+    });
+
+    $(select).on('select2:unselect', function(e){
+        let data = e.params.data;
+        let div = document.getElementById(data.text);
+        div.remove();
+    });
+
+
+    function sdmean_values() {
+      let sd = [];
+      let mean = [];
+
+      values = document.querySelectorAll('.sd')
+        for (i = 0; i < values.length; i++){
+            sd.push(values[i].value);
+        }
+        const sdValues = document.getElementById("form_std");
+        sdValues.value = sd;
+      
+
+        values = document.querySelectorAll('.mean')
+        for (i = 0; i <values.length; i++){
+            mean.push(values[i].value);
+        }
+        const meanValues = document.getElementById("form_mean");
+        meanValues.value = mean; 
+        
+
+    }
+
+</script>
+
+</html>
+
